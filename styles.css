@@ -4,11 +4,20 @@ body {
     padding: 0;
 }
 
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
 .navbar {
     background-color: #333;
     overflow: hidden;
     display: flex;
     justify-content: center; /* Center the navbar items */
+}
+
+body.dark .navbar {
+    background-color: #1e1e1e;
 }
 
 .navbar a {
@@ -19,9 +28,18 @@ body {
     text-decoration: none;
 }
 
+body.dark .navbar a {
+    color: #ffffff;
+}
+
 .navbar a:hover {
     background-color: #ddd;
     color: red; /* Change color to red on hover */
+}
+
+body.dark .navbar a:hover {
+    background-color: #333;
+    color: #ff0000;
 }
 
 .container {
@@ -46,13 +64,26 @@ main {
     text-align: center; /* Center the content */
 }
 
+body.dark .form-container {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
 .form-container textarea {
-    min-width: 700px;
+    width: 700px;
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
     min-height: 50vh;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px auto; /* Center the textarea */
     border: 2px solid #000000;
     border-radius: 4px;
+    box-sizing: border-box;
+}
+
+body.dark .form-container textarea {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #555;
 }
 
 .form-container button {
@@ -66,7 +97,16 @@ main {
     margin: 0 auto; /* Center the button */
 }
 
+body.dark .form-container button {
+    background-color: #4ce6f1;
+    color: #000000;
+}
+
 .form-container button:hover {
+    background-color: #fc46d1;
+}
+
+body.dark .form-container button:hover {
     background-color: #fc46d1;
 }
 
@@ -76,6 +116,11 @@ main {
     margin: 10px 0;
     border-radius: 4px;
     background-color: #f1f1f1;
+}
+
+body.dark .content-item {
+    background-color: #1e1e1e;
+    border-color: #333;
 }
 
 .content-actions {
@@ -90,8 +135,17 @@ main {
     cursor: pointer;
 }
 
+body.dark .content-actions button {
+    background-color: #333;
+    color: #ffffff;
+}
+
 .content-actions button:hover {
     background-color: #ddd;
+}
+
+body.dark .content-actions button:hover {
+    background-color: #555;
 }
 
 footer {
@@ -105,6 +159,17 @@ footer {
     bottom: 0;
     line-height: 10px; /* Ensure text is vertically centered */
     font-size: 11px; /* Adjust font size to fit within 10px height */
+}
+
+body.dark footer {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.theme-toggle-container {
+    position: absolute;
+    top: 60px; /* Adjust based on the height of the navbar */
+    right: 20px;
 }
 
 @media (max-width: 768px) {

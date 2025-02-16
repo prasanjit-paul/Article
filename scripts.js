@@ -7,6 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load existing content from local storage
     loadContent();
 
+    const themeToggle = document.querySelector('.theme-toggle-container');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.body.classList.add(currentTheme);
+    themeToggle.textContent = currentTheme === 'light' ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = document.body.classList.contains('light') ? 'dark' : 'light';
+        document.body.classList.remove('light', 'dark');
+        document.body.classList.add(newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'light' ? 'Toggle Dark Mode' : 'Toggle Light Mode';
+    });
+
     // Event listener for form submission
     contentForm.addEventListener('submit', (event) => {
         event.preventDefault();
